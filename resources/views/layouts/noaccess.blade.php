@@ -1,4 +1,3 @@
-user
 @extends('layouts.app')
 
 @section('content')
@@ -15,7 +14,7 @@ user
                         </div>
                     @endif
 
-                    You are logged in User!
+                    Access Denied you don't have a permission to visit a admin page!!!
                 </div>
             </div>
         </div>

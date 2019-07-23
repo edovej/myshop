@@ -27,14 +27,20 @@ class HomeController extends Controller
         return view('home');
     }
 
-    public function adminDemo(){
-        return view('admin');
+    public function adminDemo()
+    {
+        return view('layouts.admin');
     }
 
-    public function userDemo(){
-        return view('user');
+    public function userDemo()
+    {
+        return view('layouts.user');
     }
-
-
-
+    public function userAccess(){
+        return view('layouts.noaccess');
+    }
 }
+
+
+
+

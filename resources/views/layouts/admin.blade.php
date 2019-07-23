@@ -1,4 +1,3 @@
-admin 
 @extends('layouts.app')
 
 @section('content')
@@ -19,6 +18,25 @@ admin
                 </div>
             </div>
         </div>
+    </div>
+</div>
+<br>
+<div class='conteiner'>
+
+<p class="text text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit perspiciatis deserunt vitae, excepturi nobis totam velit nesciunt officia, 
+debitis nisi dolore ea mollitia esse delectus deleniti cupiditate dolorem iure minima.</p>
+<br>“
+<div class="conteiner">
+    <div class="row justify-content-center">
+       <div class="col-md-4">
+          <div class="card">
+               <div class="card-header">Create</div>
+                  <div calss="card-body">
+                      <button type="button" class="btn btn-primary">Create</button>
+                  </div>
+              </div>
+          </div>
+       </div>
     </div>
 </div>
 @endsection
