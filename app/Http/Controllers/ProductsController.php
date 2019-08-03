@@ -58,23 +58,23 @@ class ProductsController extends Controller
             'image' => 'required|image',
             'size' => 'required',
             'color' => 'required',
-          // 'quantity' => 'required'
+            'quantity' => 'required',
         ]);
 
         $product = new Product;
 
-         $product_image = $request->iamge;
+         $product_image = $request->image;
         
          $product_image_new_name = time() . $product_image->getClientOriginalName();
          $product_image->move('uploads/products' , $product_image_new_name);
 
-         $product->name->$request->name;
-         $product->price->$request->price;
-         $product->description->$request->description;
-         $product->iamge = 'uploads/products/'. $product_image_new_name;
-         $product->size->$request->size;
-         $product->color->$request->color;
-         $product->quantity->$request->quantity;
+         $product->name = $request->name;
+         $product->price = $request->price;
+         $product->description = $request->description;
+         $product->image = 'uploads/products/'. $product_image_new_name;
+         $product->size = $request->size;
+         $product->color = $request->color;
+         $product->quantity = $request->quantity;
          
 
          $product->save();
@@ -129,7 +129,7 @@ class ProductsController extends Controller
             'image' => 'required|image',
             'size' => 'required',
             'color' => 'required',
-            //'quantity' => 'required'
+            'quantity' => 'required',
 
         ]);
 
@@ -147,6 +147,7 @@ class ProductsController extends Controller
             $product->price = $request->price;
             $product->size = $request->size;
             $product->color = $request->color;
+            $product->quantity = $request->quantity;
             
             
             $product->save();

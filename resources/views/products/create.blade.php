@@ -33,7 +33,7 @@
                         </div>
                         <div class="form-group">
                               <label for="image">Quantity</label>
-                              <input type="text" name="quntity" class="form-control">
+                              <input type="number" name="quantity" class="form-control">
                         </div>
                         <div class="form-group">
                               <label for="description">Description</label>
