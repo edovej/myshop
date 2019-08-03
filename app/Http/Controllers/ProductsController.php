@@ -49,6 +49,7 @@ class ProductsController extends Controller
     public function store(Request $request)
     {
         //
+       // return 123;
 
         $this->validate($request,[
             'name' => 'required', 
@@ -57,13 +58,14 @@ class ProductsController extends Controller
             'image' => 'required|image',
             'size' => 'required',
             'color' => 'required',
-            'quantity' => 'required'
+          // 'quantity' => 'required'
         ]);
 
-        $product = new Prduct;
+        $product = new Product;
 
          $product_image = $request->iamge;
-         $product_image_new_name = time() . $product_image->getClientOrginalName();
+        
+         $product_image_new_name = time() . $product_image->getClientOriginalName();
          $product_image->move('uploads/products' , $product_image_new_name);
 
          $product->name->$request->name;
@@ -72,7 +74,8 @@ class ProductsController extends Controller
          $product->iamge = 'uploads/products/'. $product_image_new_name;
          $product->size->$request->size;
          $product->color->$request->color;
-         $product->quantity->$request->quantuty;
+         $product->quantity->$request->quantity;
+         
 
          $product->save();
 
@@ -118,6 +121,40 @@ class ProductsController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $this->validate([$request,
+
+            'name' => 'required', 
+            'price' => 'required',
+            'description' => 'required',
+            'image' => 'required|image',
+            'size' => 'required',
+            'color' => 'required',
+            //'quantity' => 'required'
+
+        ]);
+
+        $product = Product::find($id);
+            if($request->hasFile('image'))
+            {
+                $product_image = $request->image;
+                $product_image_new_name = time() . $product_image->getClientOriginalName();
+                $product_image->move('uploads/products', $product_image_new_name);
+                $product->image = 'uploads/products/' . $product_image_new_name;
+                $product->save();
+            }
+            $product->name = $request->name;
+            $product->description = $request->description;
+            $product->price = $request->price;
+            $product->size = $request->size;
+            $product->color = $request->color;
+            
+            
+            $product->save();
+            Session::flash('success', 'Product updated.');
+            return redirect()->route('products.index');
+
+
+
     }
 
     /**
@@ -129,5 +166,16 @@ class ProductsController extends Controller
     public function destroy($id)
     {
         //
+        $product = Product::find($id);
+        
+        if(file_exists($product->image))
+        {
+            unlink($product->image);
+        }
+
+        $product->delete();
+        Session::flash('success', 'Product deleted.');
+        return redirect()->back();
+
     }
 }

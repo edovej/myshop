@@ -1,7 +1,6 @@
 @extends('layouts.app')
 
 @section('content')
-
 <div class="container">
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
@@ -9,35 +8,24 @@
                 <div class="panel-heading">Dashboard</div>
 
                 <div class="panel-body">
-                    <form action="{{ route('products.store') }}" method="post" enctype="multipart/form-data">
+                    <form action="{{ route('products.update', ['id' => $products->id ]) }}" method="post">
                         {{ csrf_field() }}
+                        {{ method_field('PUT') }}
                         <div class="form-group">
                               <label for="name">Name</label>
-                              <input type="text" name="name" class="form-control" value="{{ old('name') }}">
+                              <input type="text" name="name" value="{{ $products->name }}" class="form-control">
                         </div>
                         <div class="form-group">
                               <label for="image">Price</label>
-                              <input type="number" name="price" class="form-control" value="{{ old('price') }}">
+                              <input type="number" name="price" value="{{ $products->price }}" class="form-control">
                         </div>
                         <div class="form-group">
                               <label for="image">Image</label>
                               <input type="file" name="image" class="form-control">
                         </div>
                         <div class="form-group">
-                              <label for="image">Size</label>
-                              <input type="text" name="size" class="form-control">
-                        </div>
-                        <div class="form-group">
-                              <label for="image">Color</label>
-                              <input type="text" name="color" class="form-control">
-                        </div>
-                        <div class="form-group">
-                              <label for="image">Quantity</label>
-                              <input type="text" name="quntity" class="form-control">
-                        </div>
-                        <div class="form-group">
                               <label for="description">Description</label>
-                              <textarea name="description" id="description" cols="30" rows="10" class="form-control">{{ old('description') }}</textarea>
+                              <textarea name="description" id="description" cols="30" rows="10" class="form-control">{{ $product->description }}</textarea>
                         </div>
                         <div class="form-group">
                               <button class="form-control btn btn-success">Save Product</button>
