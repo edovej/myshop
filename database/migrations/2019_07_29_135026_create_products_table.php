@@ -8,8 +8,6 @@ class CreateProductsTable extends Migration
 {
     /**
      * Run the migrations.
-     *
-     * @return void
      */
     public function up()
     {
@@ -17,8 +15,8 @@ class CreateProductsTable extends Migration
             $table->bigIncrements('id');
             $table->string('name');
             $table->double('price');
-            $table->string('description');
-            $table->string('image');
+            $table->string('description')->nullable(); //nullable da ne bi izbacivalo gresku na null value
+            //$table->string('image');
             $table->string('size');
             $table->string('color');
             $table->biginteger('quantity');
@@ -28,8 +26,6 @@ class CreateProductsTable extends Migration
 
     /**
      * Reverse the migrations.
-     *
-     * @return void
      */
     public function down()
     {

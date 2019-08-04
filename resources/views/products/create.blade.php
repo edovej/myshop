@@ -25,15 +25,15 @@
                         </div>
                         <div class="form-group">
                               <label for="image">Size</label>
-                              <input type="text" name="size" class="form-control">
+                              <input type="text" name="size" class="form-control" value="{{ old('size') }}">
                         </div>
                         <div class="form-group">
                               <label for="image">Color</label>
-                              <input type="text" name="color" class="form-control">
+                              <input type="text" name="color" class="form-control" value="{{ old('color') }}">
                         </div>
                         <div class="form-group">
                               <label for="image">Quantity</label>
-                              <input type="number" name="quantity" class="form-control">
+                              <input type="number" name="quantity" class="form-control" value="{{ old('quantity') }}">
                         </div>
                         <div class="form-group">
                               <label for="description">Description</label>

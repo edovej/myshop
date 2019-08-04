@@ -4,18 +4,14 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Product;
-use Validator;
 use Session;
-
 
 class ProductsController extends Controller
 {
-
-     public function __construct(){
-         $this->middleware('auth');
-     }
-
-
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
 
     /**
      * Display a listing of the resource.
@@ -24,8 +20,7 @@ class ProductsController extends Controller
      */
     public function index()
     {
-        //
-        return view('products.index',['products' => Product::all()]);
+        return view('products.index', ['products' => Product::all()]);
     }
 
     /**
@@ -35,87 +30,75 @@ class ProductsController extends Controller
      */
     public function create()
     {
-        //
         return view('products.create');
-
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
+     *
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
     {
         //
-       // return 123;
+        // return 123;
 
-        $this->validate($request,[
-            'name' => 'required', 
+        $this->validate($request, [
+            'name' => 'required',
             'price' => 'required',
-            'description' => 'required',
-            'image' => 'required|image',
             'size' => 'required',
             'color' => 'required',
             'quantity' => 'required',
         ]);
 
-        $product = new Product;
+        $arr = $request->all();
 
-         $product_image = $request->image;
-        
-         $product_image_new_name = time() . $product_image->getClientOriginalName();
-         $product_image->move('uploads/products' , $product_image_new_name);
+        /*
+        Recimo da je nekad nesto potrebno urediti na ovaj nacin
+        Npr: hocemo samo ime bez crtica
 
-         $product->name = $request->name;
-         $product->price = $request->price;
-         $product->description = $request->description;
-         $product->image = 'uploads/products/'. $product_image_new_name;
-         $product->size = $request->size;
-         $product->color = $request->color;
-         $product->quantity = $request->quantity;
-         
+        */
 
-         $product->save();
+        $arr['name'] = str_replace('-', '', $arr['name']);
 
-         Session::flash('success', 'Product created.');
+        $product = Product::create($arr);
 
-         return redirect()->route('products.index');
+        Session::flash('success', 'Product created.');
 
-
-
-
+        return redirect()->route('products.index');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
+     *
      * @return \Illuminate\Http\Response
      */
     public function show($id)
     {
-        //
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
+     *
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
     {
-        //
         return view('products.edit', ['product' => Product::find($id)]);
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param \Illuminate\Http\Request $request
+     * @param int                      $id
+     *
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
@@ -123,7 +106,7 @@ class ProductsController extends Controller
         //
         // $this->validate([$request,
 
-        //     'name' => 'required', 
+        //     'name' => 'required',
         //     'price' => 'required',
         //     'description' => 'required',
         //     'image' => 'required|image',
@@ -134,49 +117,28 @@ class ProductsController extends Controller
         // ]);
 
         $product = Product::find($id);
-            if($request->hasFile('image'))
-            {
-                $product_image = $request->image;
-                $product_image_new_name = time() . $product_image->getClientOriginalName();
-                $product_image->move('uploads/products', $product_image_new_name);
-                $product->image = 'uploads/products/' . $product_image_new_name;
-                $product->save();
-            }
-            $product->name = $request->name;
-            $product->description = $request->description;
-            $product->price = $request->price;
-            $product->size = $request->size;
-            $product->color = $request->color;
-            $product->quantity = $request->quantity;
-            
-            
-            $product->save();
-            Session::flash('success', 'Product updated.');
-            return redirect()->route('products.index');
+        $product->update($request->all());
 
+        $product->save();
+        Session::flash('success', 'Product updated.');
 
-
+        return redirect()->route('products.index');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param int $id
+     *
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
     {
-        //
         $product = Product::find($id);
-        
-        if(file_exists($product->image))
-        {
-            unlink($product->image);
-        }
 
         $product->delete();
         Session::flash('success', 'Product deleted.');
-        return redirect()->back();
 
+        return redirect()->back();
     }
 }

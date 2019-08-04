@@ -19,21 +19,18 @@
                               <label for="image">Price</label>
                               <input type="number" name="price" value="{{ $product->price }}" class="form-control">
                         </div>
-                        <div class="form-group">
-                              <label for="image">Image</label>
-                              <input type="file" name="image" class="form-control">
-                        </div>
+
                         <div class="form-group">
                               <label for="image">Size</label>
-                              <input type="text" name="size" class="form-control">
+                              <input type="text" name="size" value="{{ $product->size }}" class="form-control">
                         </div>
                         <div class="form-group">
                               <label for="image">Color</label>
-                              <input type="text" name="color" class="form-control">
+                              <input type="text" name="color" value="{{ $product->color }}" class="form-control">
                         </div>
                         <div class="form-group">
                               <label for="image">Quantity</label>
-                              <input type="number" name="quantity" class="form-control">
+                              <input type="number" name="quantity" value="{{ $product->quantity }}" class="form-control">
                         </div>
                         <div class="form-group">
                               <label for="description">Description</label>
