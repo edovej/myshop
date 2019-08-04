@@ -25,3 +25,19 @@ $factory->define(User::class, function (Faker $faker) {
         'remember_token' => Str::random(10),
     ];
 });
+  // factoring for products
+
+$factory->define(App\Product::class, function (Faker $faker) {
+    return [
+        'name' => $faker->sentence(4),
+        'image' => 'uploads/products/image1.jpg',
+        'description' => $faker->paragraph(5),
+
+        //nastavi sa ostkom korist pargrafe za color i ostatak propertja 00:34
+        //naci sliku imenu je image1.jpg bitno!!!
+        
+
+
+        
+    ];
+});

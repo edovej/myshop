@@ -33,6 +33,9 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
+                    <a  class="btn btn-info , {{Request::is('admin') ? 'active' : ''}}" href="/admin">Admin</a>
+                    <a  class="btn btn-info , {{Request::is('products') ? 'active' : ''}}" href="/products">Products</a>
+                    
 
                     </ul>
 
@@ -93,7 +96,7 @@
             @yield('content')
         </main>
     </div>
-    <!-- Scripts -->
-    <script src="/js/app.js"></script>
+    <!-- Scripts
+    <script src="/js/app.js"></script> -->
 </body>
 </html>

@@ -32,7 +32,7 @@ debitis nisi dolore ea mollitia esse delectus deleniti cupiditate dolorem iure m
           <div class="card">
                <div class="card-header">Create</div>
                   <div calss="card-body">
-                      <button type="button"  class="btn btn-primary">Create</button>
+                        <a  class="btn btn-primary , {{Request::is('create') ? 'active' : ''}}" href="products/create">Create</a>
                   </div>
               </div>
           </div>

@@ -15,7 +15,13 @@
                                     Name
                               </th>
                               <th>
+                                    Size
+                              </th>
+                              <th>
                                     Price
+                              </th>
+                              <th>
+                                    Quantity
                               </th>
                               <th>
                                     Edit
@@ -28,7 +34,9 @@
                               @foreach($products as $product)
                                     <tr>
                                           <td>{{ $product->name }}</td>
+                                          <td>{{ $product->size }}</td>
                                           <td>{{ $product->price }}</td>
+                                          <td>{{ $product->quantity }}</td>
                                           <td>
                                                 <a href="{{ route('products.edit', ['id' => $product->id ]) }}" class="btn btn-default btn-xs">Edit</a>
                                           </td>
