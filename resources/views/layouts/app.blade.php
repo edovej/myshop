@@ -36,6 +36,7 @@
                     <ul class="navbar-nav mr-auto">
 	                    <a  class="btn btn-info , {{Request::is('admin') ? 'active' : ''}}" href="/admin">Admin</a>
 	                    <a  class="btn btn-info , {{Request::is('products') ? 'active' : ''}}" href="/products">Products</a>
+                        <a  class="btn btn-info , {{Request::is('image') ? 'active' : ''}}" href="/image">Image</a>
                     </ul>
 					@endrole
                     <!-- Right Side Of Navbar -->
