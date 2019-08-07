@@ -28,13 +28,7 @@ class ImageController extends Controller
      */
     public function create($id)
     {
-        $user = User::create([
-            'image' => $data['image'],
-        ]);
-
-        if (isset($data['image'])) {
-            $user->addMediaFromRequest('image')->toMediaCollection();
-        }
+        $user->addMediaFromRequest('image')->toMediaCollection();
 
         return $user;
     }
@@ -50,7 +44,7 @@ class ImageController extends Controller
     {
         $user = auth()->user();
 
-        $user->addMedia($request->image)->toMediaCollection();
+        $user->addMediaFromRequest('image')->toMediaCollection();
         //dd($user);
 
         return redirect()->back();
