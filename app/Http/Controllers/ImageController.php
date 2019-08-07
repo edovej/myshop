@@ -26,8 +26,17 @@ class ImageController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create($id)
     {
+        $user = User::create([
+            'image' => $data['image'],
+        ]);
+
+        if (isset($data['image'])) {
+            $user->addMediaFromRequest('image')->toMediaCollection();
+        }
+
+        return $user;
     }
 
     /**
@@ -40,7 +49,9 @@ class ImageController extends Controller
     public function store(Request $request)
     {
         $user = auth()->user();
+
         $user->addMedia($request->image)->toMediaCollection();
+        //dd($user);
 
         return redirect()->back();
     }
