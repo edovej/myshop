@@ -17,12 +17,12 @@
                         </div>
                         <div class="form-group">
                               <label for="image">Price</label>
-                              <input type="number" name="price" class="form-control" value="{{ old('price') }}">
+                              <input type="text" name="price" class="form-control" value="{{ old('price') }}" placeholder="Here type price">
                         </div>
-                        <div class="form-group">
+                        <!-- <div class="form-group">
                               <label for="image">Image</label>
                               <input type="file" name="image" class="form-control">
-                        </div>
+                        </div> -->
                         <div class="form-group">
                               <label for="image">Size</label>
                               <input type="text" name="size" class="form-control" value="{{ old('size') }}">

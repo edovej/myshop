@@ -17,7 +17,7 @@
                         </div>
                         <div class="form-group">
                               <label for="image">Price</label>
-                              <input type="number" name="price" value="{{ $product->price }}" class="form-control">
+                              <input type="text" name="price" value="{{ $product->price }}" class="form-control" palaceholder="Here type price">
                         </div>
 
                         <div class="form-group">
