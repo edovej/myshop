@@ -40,32 +40,32 @@ class HomeController extends Controller
         return view('layouts.noaccess');
     }
 
-    public function showImage()
-    {
-        return view('layouts.showimage');
+    // public function showImage()
+    // {
+    //     return view('layouts.showimage');
 
-        $images = auth()->user()->getMedia();
+    //     $images = auth()->user()->getMedia();
 
-        return view('layouts.showimage', compact('images'));
-    }
+    //     return view('showimage', compact('images'));
+    // }
 
-    public function createImage($id)
-    {
-        return view('layouts.createimage');
+    // public function createImage($id)
+    // {
+    //     return view('layouts.createimage');
 
-        $user->addMediaFromRequest('image')->toMediaCollection();
+    //     $user->addMediaFromRequest('image')->toMediaCollection();
 
-        return $user;
-    }
+    //     return $user;
+    // }
 
-    public function storeImage(Request $request)
-    {
-        return view('layouts.storeimage');
-        $user = auth()->user();
+    // public function storeImage(Request $request)
+    // {
+    //     return view('layouts.storeimage');
+    //     $user = auth()->user();
 
-        $user->addMediaFromRequest('image')->toMediaCollection();
-        //dd($user);
+    //     $user->addMediaFromRequest('image')->toMediaCollection();
+    //     //dd($user);
 
-        return redirect()->back();
-    }
+    //     return redirect()->back();
+    // }
 }

@@ -1,4 +1,4 @@
-@extends('layouts.app')
+<!-- @extends('layouts.app')
 
 @section('content')
 <div class="container">
@@ -28,11 +28,11 @@
     <br>“
     <div class="conteiner">
         <div class="row justify-content-center">
-            <div class="col-md-4">
+            <div class="col-md-6">
                 <div class="card">
                     <div class="card-header">Upload picture</div>
                     <div calss="card-body">
-                        <form action="{{route('storeimage')}}" method="post" enctype="multipart/form-data">
+                        <form action="{{route('storeimage')}}" method="get" enctype="multipart/form-data">
                             @csrf
                             <div class="input-group mb-3">
                                 <div class="input-group-prepend">
@@ -53,9 +53,10 @@
         </div>
     </div>
 
+
 </div>
 
 
 
 @endsection 
-
+ -->

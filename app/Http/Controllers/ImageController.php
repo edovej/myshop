@@ -1,99 +1,101 @@
- <?php
+<?php
 
-//  namespace App\Http\Controllers;
+namespace App\Http\Controllers;
 
-// use Illuminate\Http\Request;
+use Illuminate\Http\Request;
 
-// class ImageController extends Controller
-// {
-//     public function __construct()
-//     {
-//         $this->middleware('auth');
-//     }
+class ImageController extends Controller
+{
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
 
-//     /**
-//      * Display a listing of the resource.
-//      *
-//      * @return \Illuminate\Http\Response
-//      */
-//     // public function index()
-//     // {
-//     //     $images = auth()->user()->getMedia();
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index()
+    {
+        $images = auth()->user()->getMedia('image');
 
-//     //     return view('image', compact('images'));
-//     // }
+        return view('image', compact('images'));
+    }
 
-//     /**
-//      * Show the form for creating a new resource.
-//      *
-//      * @return \Illuminate\Http\Response
-//      */
-//     // public function create($id)
-//     // {
-//     //     $user->addMediaFromRequest('image')->toMediaCollection();
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create($id)
+    {
+        $user->addMediaFromRequest('image')->toMediaCollection();
 
-//     //     return $user;
-//     // }
+        return $user;
+    }
 
-//     /**
-//      * Store a newly created resource in storage.
-//      *
-//      * @param \Illuminate\Http\Request $request
-//      *
-//      * @return \Illuminate\Http\Response
-//      */
-    // public function store(Request $request)
-    // {
-    //     $user = auth()->user();
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param \Illuminate\Http\Request $request
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function store(Request $request)
+    {
+        $user = auth()->user();
+        $user->addMediaFromRequest('image')->toMediaCollection('image');
+        //dd($user);
+        return redirect()->back();
+    }
 
-    //     $user->addMediaFromRequest('image')->toMediaCollection();
-    //     //dd($user);
+    /**
+     * Display the specified resource.
+     *
+     * @param int $id
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function show($id)
+    {
+    }
 
-    //     return redirect()->back();
-    // }
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param int $id
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function edit($id)
+    {
+    }
 
-//     /**
-//      * Display the specified resource.
-//      *
-//      * @param int $id
-//      *
-//      * @return \Illuminate\Http\Response
-//      */
-//     public function show($id)
-//     {
-//     }
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param \Illuminate\Http\Request $request
+     * @param int                      $id
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request, $id)
+    {
+    }
 
-    // /**
-    //  * Show the form for editing the specified resource.
-    //  *
-    //  * @param int $id
-    //  *
-    //  * @return \Illuminate\Http\Response
-    //  */
-    // // public function edit($id)
-    // {
-    // }
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param int $id
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy($id)
+    {
+        $user = User::findOrFail($id);
+        $user->auth()->user()->clearMediaCollection();
 
-//     /**
-//      * Update the specified resource in storage.
-//      *
-//      * @param \Illuminate\Http\Request $request
-//      * @param int                      $id
-//      *
-//      * @return \Illuminate\Http\Response
-//      */
-//     public function update(Request $request, $id)
-//     {
-//     }
-
-//     /**
-//      * Remove the specified resource from storage.
-//      *
-//      * @param int $id
-//      *
-//      * @return \Illuminate\Http\Response
-//      */
-//     public function destroy($id)
-//     {
-//     }
-//}
+        return $user;
+    }
+}

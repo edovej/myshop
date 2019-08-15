@@ -29,10 +29,8 @@ Route::group(['middleware' => ['auth']], function () {
         // Route::get('/products/index', 'ProductsController@index')->name('index');
         // Route::get('/products/create', 'ProductsController@create')->name('create');
         Route::resource('products', 'ProductsController');
-        //Route::resource('image', 'ImageController');
-        Route::get('/showimage', 'HomeController@showImage')->name('showimage');
-        Route::get('/createimage', 'HomeController@createImage')->name('createimage');
-        Route::post('/storeimage', 'HomeController@storeImage')->name('storeimage');
+        Route::get('image', 'ImageController@index')->name('image');
+        Route::resource('image', 'ImageController');
     });
 });
 
