@@ -44,6 +44,12 @@ class ImageController extends Controller
      */
     public function store(Request $request)
     {
+        $this->validate([$request,
+        'image' => 'required',
+        ]);
+
+        Session::flash('success', 'Image uploaded.');
+
         $user = auth()->user();
         $user->addMediaFromRequest('image')->toMediaCollection('image');
         //dd($user);

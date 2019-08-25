@@ -10,27 +10,29 @@ class ProductsTableSeeder extends Seeder
      */
     public function run()
     {
-        $pr1 = [
-            'name' => 'Majica muska',
-            'price' => 30.50,
-            'description' => 'nesto nesto nesto nesto nesto nesto nesto nesto ',
-            //'image' => 'uploads/products/image.jpg',
-            'size' => 'L',
-            'color' => 'blue',
-            'quantity' => 300,
-        ];
+        // $pr1 = [
+        //     'name' => 'Majica muska',
+        //     'price' => 30.50,
+        //     'description' => 'nesto nesto nesto nesto nesto nesto nesto nesto ',
+        //     //'image' => 'uploads/products/image.jpg',
+        //     'size' => 'L',
+        //     'color' => 'blue',
+        //     'quantity' => 300,
+        // ];
 
-        $pr2 = [
-            'name' => 'Majica muska',
-            'price' => 30.50,
-            'description' => 'nesto nesto nesto nesto nesto nesto nesto nesto ',
-            //'image' => 'uploads/products/image1.jpg',
-            'size' => 'M',
-            'color' => 'red',
-            'quantity' => 300,
-        ];
+        // $pr2 = [
+        //     'name' => 'Majica muska',
+        //     'price' => 30.50,
+        //     'description' => 'nesto nesto nesto nesto nesto nesto nesto nesto ',
+        //     //'image' => 'uploads/products/image1.jpg',
+        //     'size' => 'M',
+        //     'color' => 'red',
+        //     'quantity' => 300,
+        // ];
 
-        Product::create($pr1);
-        Product::create($pr2);
+        // Product::create($pr1);
+        // Product::create($pr2);
+
+        factory(\App\Product::class, 2)->create();
     }
 }

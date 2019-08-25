@@ -18,6 +18,11 @@ class ProductsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function shop()
+    {
+        return view('products.shop', ['products' => Product::paginate(3)]);
+    }
+
     public function index()
     {
         return view('products.index', ['products' => Product::all()]);

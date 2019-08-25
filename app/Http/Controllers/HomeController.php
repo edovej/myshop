@@ -35,6 +35,11 @@ class HomeController extends Controller
         return view('layouts.user');
     }
 
+    public function shopDemo()
+    {
+        return view('products.shop');
+    }
+
     public function userAccess()
     {
         return view('layouts.noaccess');

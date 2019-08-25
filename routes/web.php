@@ -23,11 +23,14 @@ Auth::routes();
 Route::group(['middleware' => ['auth']], function () {
     Route::get('/user', 'HomeController@userDemo')->name('user');
     Route::get('/useraccess', 'HomeController@userAccess')->name('noaccess');
+    Route::get('/shop', 'HomeController@shopDemo')->name('shop');
 
     Route::group(['middleware' => ['admin']], function () {
         Route::get('/admin', 'HomeController@adminDemo')->name('admin');
         // Route::get('/products/index', 'ProductsController@index')->name('index');
         // Route::get('/products/create', 'ProductsController@create')->name('create');
+        Route::get('/products/shop', ['uses' => 'ProductsController@shop'])->name('shop');
+
         Route::resource('products', 'ProductsController');
         Route::get('image', 'ImageController@index')->name('image');
         Route::resource('image', 'ImageController');

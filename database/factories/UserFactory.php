@@ -30,14 +30,11 @@ $factory->define(User::class, function (Faker $faker) {
 $factory->define(App\Product::class, function (Faker $faker) {
     return [
         'name' => $faker->sentence(4),
-        'image' => 'uploads/products/image1.jpg',
-        'description' => $faker->paragraph(5),
-
-        //nastavi sa ostkom korist pargrafe za color i ostatak propertja 00:34
-        //naci sliku imenu je image1.jpg bitno!!!
-        
-
-
-        
+        'image' => 'storage/9/majca_peja_bela.jpg',
+        'description' => $faker->paragraph(2),
+        'price' => $faker->numberBetween(10, 1000),
+        'size' => $faker->sentence(5),
+        'color' => $faker->sentence(5),
+        'quantity' => $faker->numberBetween(1, 10000),
     ];
 });
