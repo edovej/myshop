@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Product;
 
 class HomeController extends Controller
 {
@@ -19,6 +20,11 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
+    public function welcome()
+    {
+        return view('welcome', ['products' => Product::paginate(3)]);
+    }
+
     public function index()
     {
         //dd(auth()->user()->hasRole('admin'));
