@@ -23,9 +23,12 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/useraccess', 'HomeController@userAccess')->name('noaccess');
     Route::get('/shop', 'HomeController@shopDemo')->name('shop');
     Route::get('/welcome', ['uses' => 'HomeController@welcome'])->name('welcome');
+    // Route::get('/product/{id}', 'HomeController@singleProduct')->name('product.single');
+    Route::get('/product/{id}', ['uses' => 'HomeController@singleProduct'])->name('product.single');
 
     Route::group(['middleware' => ['admin']], function () {
         Route::get('/admin', 'HomeController@adminDemo')->name('admin');
+
         // Route::get('/products/index', 'ProductsController@index')->name('index');
         // Route::get('/products/create', 'ProductsController@create')->name('create');
 
