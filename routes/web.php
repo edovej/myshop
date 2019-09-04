@@ -12,6 +12,10 @@
 */
 
 Route::get('/', 'HomeController@welcome');
+Route::get('/product/{id}', ['uses' => 'HomeController@singleProduct'])->name('product.single');
+Route::post('/cart/add', ['uses' => 'shoppingController@add_to_cart'])->name('cart.add');
+Route::get('/cart', ['uses' => 'shoppingController@cart'])->name('cart');
+Route::post('/cart/delete/{id}', ['uses' => 'shoppingController@cart_delete'])->name('cart.delete');
 
 Auth::routes();
 
@@ -24,7 +28,6 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/shop', 'HomeController@shopDemo')->name('shop');
     Route::get('/welcome', ['uses' => 'HomeController@welcome'])->name('welcome');
     // Route::get('/product/{id}', 'HomeController@singleProduct')->name('product.single');
-    Route::get('/product/{id}', ['uses' => 'HomeController@singleProduct'])->name('product.single');
 
     Route::group(['middleware' => ['admin']], function () {
         Route::get('/admin', 'HomeController@adminDemo')->name('admin');

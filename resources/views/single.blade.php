@@ -31,41 +31,28 @@
 
             <div class="col-lg-6 col-lg-offset-1 col-md-6 col-md-offset-1 col-sm-6 col-sm-offset-1 col-xs-12 col-xs-offset-0">
                 <div class="product-details-info">
-                    <div class="product-details-info-price">${{$product->price}}</div>
+                    <div class="product-details-info-price">BAM{{$product->price}}</div>
                     <h3 class="product-details-info-title">{{$product->name}}</h3>
                     <p class="product-details-info-text">{{$product->description}}
                     </p>
 
-                    <div class="quantity">
+                   <form action="{{ route('cart.add')}}" method="post">
+                       {{csrf_field()}}
+                       <div class="quantity">
                         <a href="#" class="quantity-minus">-</a>
-                        <input title="Qty" class="email input-text qty text" type="text" value="2">
+                        <input title="Qty" class="email input-text qty text"  name="qty" type="text" value="1">
                         <a href="#" class="quantity-plus">+</a>
                     </div>
 
-                    <div class="large-12 columns">
-                            <label>
-                                Select Size
-                                <select>
-                                    <option value="small">
-                                        Small
-                                    </option>
-                                    <option value="medium">
-                                        Medium
-                                    </option>
-                                    <option value="large">
-                                        Large
-                                    </option>
-                                   
-                                </select>
-                            </label>
-                            
-                        </div>
+                    <input type="hidden" name="pdt_id" value="{{$product->id}}">
 
-                    <a href="#" class="btn btn-medium btn--primary">
+                    <button class="btn btn-medium btn--primary">
                         <span class="text">Add to Cart</span>
                         <i class="seoicon-commerce"></i>
                         <span class="semicircle"></span>
-                    </a>
+                    </button>
+                   </form>
+
                 </div>
             </div>
         </div>
