@@ -10,37 +10,7 @@
 
 </head>
   
-<!-- <header class="header" id="site-header">
 
-    <div class="container">
-
-        <div class="header-content-wrapper">
-
-            <ul class="nav-add">
-                <li class="cart">
-
-                    <a href="#" class="js-cart-animate">
-                        <i class="seoicon-basket"></i>
-                        <span class="cart-count">0</span>
-                    </a>
-
-                    <div class="cart-popup-wrap">
-                        <div class="popup-cart">
-                            <h4 class="title-cart">No products in the cart!</h4>
-                            <p class="subtitle">Please make your choice.</p>
-                            <div class="btn btn-small btn--dark">
-                                <span class="text">view all catalog</span>
-                            </div>
-                        </div>
-                    </div> -->
-
-                </li>
-            </ul>
-        </div>
-
-    </div>
-
-</header>
 
 
 <div class="content-wrapper">
@@ -104,7 +74,7 @@
                                 
    
                                     <a href="{{ route('cart.delete', ['id' => $pdt->rowId]) }}" class="btn btn-xs btn-danger" title="Remove this item">
-                                        <i class="seoicon-delete-bold">Delete</i>
+                                        <i class="fas fa-times-circle"></i>Delete</i>
                                     </a>
                                 </td>
 
@@ -136,6 +106,7 @@
                                 </td>
 
                                 <td class="product-subtotal">
+                                    
                                     <h5 class="total amount">{{$pdt->total()}}</h5>
                                 </td>
 
@@ -176,8 +147,12 @@
 
                     <div class="cart-total">
                         <h3 class="cart-total-title">Cart Totals</h3>
+                        <h5 class="cart-total-total">Subtotal: <span class="price">{{Cart::subtotal()}}</span> </h5>
+                        <h5 class="cart-total-total">Tax: <span class="price">{{Cart::tax()}}</span></h5>
                         <h5 class="cart-total-total">Total: <span class="price">{{Cart::total()}}</span></h5>
-                        <a href="20_checkout.html" class="btn btn-medium btn--light-green btn-hover-shadow">
+                        
+
+                        <a href="{{route('cart.checkout')}}" class="btn btn-medium btn--light-green btn-hover-shadow">
                             <span class="text">Checkout</span>
                             <span class="semicircle"></span>
                         </a>

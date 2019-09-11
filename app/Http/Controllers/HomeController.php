@@ -56,6 +56,20 @@ class HomeController extends Controller
         return view('layouts.noaccess');
     }
 
+    public function incr($id, $qty)
+    {
+        Cart::update($id, $qty + 1);
+
+        return redirect()->back();
+    }
+
+    public function decr($id, $qty)
+    {
+        Cart::update($id, $qty - 1);
+
+        return redirect()->back();
+    }
+
     // public function showImage()
     // {
     //     return view('layouts.showimage');

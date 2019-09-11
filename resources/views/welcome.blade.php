@@ -24,16 +24,18 @@
 
                     <a href="#" class="js-cart-animate">
                         <i class="seoicon-basket"></i>
-                        <span class="cart-count">0</span>
+                        <span class="cart-count">{{Cart::content()->count()}}</span>
                     </a>
 
                     <div class="cart-popup-wrap">
                         <div class="popup-cart">
-                            <h4 class="title-cart">No products in the cart!</h4>
-                            <p class="subtitle">Please make your choice.</p>
+                            <h4 class="title-cart align-center">${{Cart::total()}}</h4>
+                            <p class="subtitle">Your choice is the right one.</p>
+                            <a href="/cart">
                             <div class="btn btn-small btn--dark">
-                                <span class="text">view all catalog</span>
+                                <span class="text">View cart</span>
                             </div>
+                            </a>
                         </div>
                     </div>
 
@@ -42,6 +44,7 @@
         </div>
 
     </div>
+    
 
 </header>
 
@@ -88,7 +91,7 @@
                         </div>
                         
 
-                        <a href="19_cart.html" class="btn btn-small btn--dark add">
+                        <a href="{{route('cart.rapid.add', ['id' => $product->id])}}" class="btn btn-small btn--dark add">
                             <span class="text">Add to Cart</span>
                             <i class="seoicon-commerce"></i>
                         </a>
