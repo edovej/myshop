@@ -50,12 +50,14 @@
                     </form>
 
                       <div class="card-columns">
+                      
                       @foreach($images as $image) 
                          <div class="card">
                               <img src="{{$image->getUrl()}}" class="card-img-top" alt="...">
                                   <div class="card-body">
-                                   <h5 class="card-title">Card title that wraps to a new line</h5>
-                                   <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                                   <h5 class="card-title">{{$image->name}}</h5>
+                                   <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt dolorum hic, ut possimus veniam assumenda. Debitis, beatae ex ipsum veritatis sit,
+                                   </p>
                          </div>
                        </div>
                        @endforeach

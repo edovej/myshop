@@ -29,7 +29,7 @@
 
                     <div class="cart-popup-wrap">
                         <div class="popup-cart">
-                            <h4 class="title-cart align-center">${{Cart::total()}}</h4>
+                            <h4 class="title-cart align-center">BAM{{Cart::total()}}</h4>
                             <p class="subtitle">Your choice is the right one.</p>
                             <a href="/cart">
                             <div class="btn btn-small btn--dark">

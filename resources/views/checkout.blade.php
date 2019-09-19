@@ -46,7 +46,7 @@
 							</td>
 
 							<td class="product-subtotal">
-								<h5 class="total amount">${{$item->total()}}</h5>
+								<h5 class="total amount">BAM{{$item->total()}}</h5>
 							</td>
 
 						</tr>
@@ -73,7 +73,7 @@
 							</td>
 
 							<td class="product-subtotal">
-								<h5 class="total amount">${{Cart::total()}}</h5>
+								<h5 class="total amount">BAM{{Cart::total()}}</h5>
 							</td>
 						</tr>
 
